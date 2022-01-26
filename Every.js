@@ -14,8 +14,23 @@ const soloPositivosv2 = numeros.every(data => data>0);
 console.log("Solo positivos: ", soloPositivos);
 //forEach - every - filter
 //verificar si todos los elementos de una matriz son positivos
-const matriz =[[1,2,3], [4,5,6], [7,8,9]];
+const matriz =[[1,2,3], [4,5,6], [7,8,9], [10,20,30]];
 
-matriz.forEach(function(item){
-    console.log(item.every(item => item>0))
-});
+function matrizSoloPositivos(array){
+    var res = [];
+    array.forEach(element => {
+        res.push (element.every( item =>{
+
+            return item>0;
+        }));          
+    });
+    //console.log(res);
+    return res.every ( data => data==true);
+}
+
+const x = matrizSoloPositivos(matriz);
+console.log (x);
+if(x)
+    console.log("La matriz tiene solo positivo:", x);
+    else
+    console.log("La matriz tienen solo negativos:",x);
